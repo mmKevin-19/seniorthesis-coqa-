@@ -129,6 +129,7 @@ All the results are based on `n_history = 2`:
 | seq2seq_copy  | 45.2  | 38.0 |
 | DrQA | 55.6 | 46.2 |
 | pipeline | 65.0 | 54.9 |
+| RoBERTa | 34.3 | 30.0 |
 
 ## Citation
 
