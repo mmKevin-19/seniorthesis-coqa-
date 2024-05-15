@@ -137,7 +137,7 @@ All the results are based on `n_history = 2`:
 We process the QuAC dataset through the quacmetric.py, quacprocess.py, and quacrun.py files. We do not test for DrQA model in the QuAC dataset and also do not test for exact matching. QuAC test set results are as shown:
 
 | Model  | F1 |
-| ------------- | ------------- | ------------- |
+| ------------- | ------------- |
 | seq2seq | 19.7 |
 | RoBERTa | 50.8 |
 | RoBERTa + history embeddings | 52.3|
