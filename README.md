@@ -1,4 +1,4 @@
-# seniorthesis-write
+# Thesis Code
 
 # Conversational Question Answering Systems
 There are two datasets used here: CoQA (Conversational Question Answering Dataset) and QuAC (Question Answering in Context). 
