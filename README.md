@@ -7,13 +7,12 @@ We look to evaluate on these datasets with the following three models: RoBERTa, 
 
 # CoQA dataset
 
-As we use the [OpenNMT-py](https://github.com/OpenNMT/OpenNMT-py) library for all our seq2seq experiments, please use the following command to clone our repository.
+Use the [OpenNMT-py](https://github.com/OpenNMT/OpenNMT-py) library for all seq2seq experiments, and clone repository.
 
 ```bash
   git clone --recurse-submodules git@github.com:stanfordnlp/coqa-baselines.git
 ```
 
-This code repository was mostly written by [Danqi Chen](https://github.com/danqi), built on top of the [DrQA](https://github.com/facebookresearch/DrQA) and [OpenNMT-py](https://github.com/OpenNMT/OpenNMT-py) projects, with some help from [Shayne Longpre](https://github.com/Shayne13/) and [Siva Reddy](https://github.com/sivareddyg). If you have any questions about this repository, please use Github Issues.
 
 
 ## Requirements
