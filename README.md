@@ -1,5 +1,11 @@
-# coqa-baselines
-First model used: RoBERTA (https://github.com/facebookresearch/fairseq/tree/main/examples/roberta). Lot of code is based on the original paper
+# seniorthesis-write
+
+# Conversational Question Answering Systems
+There are two datasets used here: CoQA (Conversational Question Answering Dataset) and QuAC (Question Answering in Context). 
+
+We look to evaluate on these datasets with the following three models: RoBERTa, SDNet, and FlowQA. See the respective model directories for further elaboration and code.
+
+# CoQA dataset
 
 As we use the [OpenNMT-py](https://github.com/OpenNMT/OpenNMT-py) library for all our seq2seq experiments, please use the following command to clone our repository.
 
@@ -61,12 +67,6 @@ Preprocess the data and embeddings:
 Run a seq2seq (with attention) model:
 ```bash
    python seq2seq/train.py -data data/seq2seq-h2 -save_model seq2seq_models/seq2seq -word_vec_size 300 -pre_word_vecs_enc data/seq2seq-h2.embed.enc.pt -pre_word_vecs_dec data/seq2seq-h2.embed.dec.pt -epochs 50 -gpuid 0 -seed 123
-```
-
-Run a seq2seq+copy model:
-```bash
-   python seq2seq/train.py -data data/seq2seq-h2 -save_model seq2seq_models/seq2seq_copy -copy_attn -reuse_copy_attn -word_vec_size 300 -pre_word_vecs_enc data/seq2seq.embed.enc.pt -pre_word_vecs_dec data/seq2seq.embed.dec.pt -epochs 50 -gpuid 0 -seed 123
-```
 
 ### Testing
 ```bash
@@ -123,13 +123,30 @@ Generate the input files for the reading comprehension (extractive question answ
 
 All the results are based on `n_history = 2`:
 
-| Model  | Dev F1 | Dev EM |
+| Model  | EM | F1 |
 | ------------- | ------------- | ------------- |
 | seq2seq | 20.9 | 17.7 |
-| seq2seq_copy  | 45.2  | 38.0 |
 | DrQA | 55.6 | 46.2 |
-| pipeline | 65.0 | 54.9 |
-| RoBERTa | 34.3 | 30.0 |
+| RoBERTa | 60.8 | 55.8 |
+| RoBERTa + history embeddings | 62.3 | 59.6 |
+| SDNet | 63.8 | 59.5 |
+| FlowQA | 65.6 | 61.8 |
+| FlowQA + attention on flow layer | 65.5 | 63.3 |
+
+# QuAC dataset
+
+We process the QuAC dataset through the quacmetric.py, quacprocess.py, and quacrun.py files. We do not test for DrQA model in the QuAC dataset and also do not test for exact matching. QuAC test set results are as shown:
+
+| Model  | EM | F1 |
+| ------------- | ------------- | ------------- |
+| seq2seq | 20.9 | 17.7 |
+| DrQA | 55.6 | 46.2 |
+| RoBERTa | 60.8 | 55.8 |
+| RoBERTa + history embeddings | 62.3 | 59.6 |
+| SDNet | 63.8 | 59.5 |
+| FlowQA | 65.6 | 61.8 |
+| FlowQA + attention on flow layer | 65.5 | 63.3 |
+
 
 ## Citation
 
@@ -140,6 +157,15 @@ All the results are based on `n_history = 2`:
       journal={Transactions of the Association of Computational Linguistics (TACL)},
       year={2019}
     }
+
+@misc{choi2018quac,
+      title={QuAC : Question Answering in Context}, 
+      author={Eunsol Choi and He He and Mohit Iyyer and Mark Yatskar and Wen-tau Yih and Yejin Choi and Percy Liang and Luke Zettlemoyer},
+      year={2018},
+      eprint={1808.07036},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
 ```
 
 ## License
