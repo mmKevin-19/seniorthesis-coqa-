@@ -1,4 +1,3 @@
-echo "This file should be run in the parent directory of coqa-baselines"
 
 echo "Installing requirements"
 pip install pycorenlp torchtext==0.2.1 gensim
